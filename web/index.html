@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Cycles</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,inital-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="cycle.js" defer></script>
+        <script src="fetch.js" defer></script>
+        <script src="cycle_main.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>Daily Cycle Tracker</h1>
+        </header>
+        <section>
+            <h2>Setup</h2>
+            <div class="input">
+                <!-- Maybe put an icon here? -->
+                <input type="text">
+                <input type="text">
+                <input type="text">
+                <button id="begin">Start Cycle</button>
+            </div>
+        </section>
+        <section>
+            <h2>In Progress</h2>
+            <h3 class="clock">15:00</h3>
+            <div class="clock-controls">
+                <button class="start-pause">Start</button>
+                <button class="reset">Reset</button>
+            </div>
+            <div class="active-activity">
+                <div>
+                   <span class="activity">
+                        <input
+                            type="radio"
+                            id="act1"
+                            name="activity_choice"
+                            value="">
+                        <label for="act1">Activity 1</label>
+                    </span>
+                    <span class="activity">
+                        <input 
+                            type="radio" 
+                            id="act2" 
+                            name="activity_choice"
+                            value="">
+                        <label for="act2">Activity 2</label>
+                    </span>
+                    <span class="activity">
+                        <input 
+                            type="radio" 
+                            id="act3" 
+                            name="activity_choice"
+                            value="">
+                        <label for="act3">Activity 3</label>
+                    </span>
+                    <textarea rows=2 placeholder="Notes"></textarea>
+                </div>
+                <button id="submit">Submit</button>
+            </div>
+        </section>
+        <section>
+            <h2>Session Summary</h2>
+            <div class="table-controls">
+                <button class="date-backward">&lt;&lt;</button>
+                <span>Today</span>
+                <button class="date-forward">&gt;&gt;</button>
+            </div>
+            <div class="table-wrapper">
+                <table class="completed-cycles">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Start Time</th>
+                            <th>Activity 1</th>
+                            <th>Activity 2</th>
+                            <th>Activity 3</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Sample content to test out styling -->
+                        <!--
+                        <tr>
+                            <td>1</td>
+                            <td>10:00am</td>
+                            <td>Journal</td>
+                            <td>Web dev review</td>
+                            <td>Support</td>
+                            <td>Warming up for the day</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>10:20am</td>
+                            <td>Web dev review</td>
+                            <td>Pizza dough</td>
+                            <td>Learning about Flask</td>
+                            <td>Warming up for the day</td>
+                        </tr>
+                        -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </body>
+</html>

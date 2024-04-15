@@ -1,0 +1,234 @@
+/* General styles */
+html {
+    font-family: sans-serif;
+}
+
+body {
+    background: #ddd;
+    max-width: 860px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+header, section {
+    margin: 0 0.5rem;
+}
+
+/* Shared styles */
+input[type="text"] {
+    display: block;
+    line-height: 1.5em;
+}
+
+button {
+    border: none;
+    border-radius: 2px;
+    font-family: sans-serif; /* Not inherited from html */
+    line-height: 1.5em;
+    padding: 2px;
+    width: 90px;
+}
+
+button:not([disabled]):hover {
+    background: #fff;
+}
+
+/* Setup Section */
+/*
+  On large displays, inputs and button fit on a single line.
+*/
+@media (width >= 640px) {
+    .input {
+        display: flex;
+        gap: 1rem;
+    }
+
+    input[type="text"] {
+        flex: 1;
+    }
+
+    input[type="text"]:first-child {
+        margin-inline-start: 0;
+    }
+}
+
+/* 
+  On small displays, make inputs fill the width, and center the button.
+*/
+@media (width < 640px) {
+    input[type="text"] {
+        width: calc(100% - 0.5rem); /* Overflows the margin without calc */
+        margin: 0.5rem 0;
+    }
+
+    #begin {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+input[type="text"] {
+    min-width: 150px;
+}
+
+.error {
+    border-color: red;
+}
+
+/* In Progress Section */
+h3 {
+    background-color: #fff8;
+    text-align: center;
+    padding: 0.5em 0;
+}
+
+/* 
+  Inspired by https://www.w3schools.com/cssref/tryit.php?filename=trycss_animatable 
+  Creates a simple background color blink
+*/
+h3.animate {
+    animation: bgwave 0.5s infinite;
+}
+
+@keyframes bgwave {
+    0% {background-color: #fff8;}
+    50% {background-color: #0f08;}
+    100% {background-color: #fff8;}
+}
+
+.clock-controls {
+    /* Render controls centered w/ a small gap */
+    margin: 1rem 0;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+@media (width >= 640px) {
+    .active-activity {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-end;
+    }
+
+    .active-activity > div {
+        flex: 1;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    textarea {
+        flex: 1 400px;
+    }
+
+    span.activity {
+        flex: 1 150px;
+        overflow: hidden;
+    }
+}
+
+@media (width < 640px) {
+    span.activity {
+        margin: 0.5rem 0;
+    }
+
+    textarea {
+        width: calc(100% - 0.25rem); /* Adjusted to align with everything */
+    }
+
+    #submit {
+        display: block;
+        margin: 0.25rem auto;
+    }
+}
+
+textarea {
+    resize: none;
+    overflow-y: auto;
+}
+
+span.activity {
+    /* Might be nice if the background changed
+       as checkbox status (disabled/enabled, checked) changes */
+    background: #eee8;
+    display: flex;
+    align-items: center;
+}
+
+label {
+    line-height: 1.5em;
+    min-height: 1.5em;
+    flex: 1;
+    padding: 0 0.5rem;
+    word-break: break-word;
+}
+
+/* Session Summary Section */
+.table-controls {
+    display: flex;
+    align-items: center;
+    border-radius: 2px; /* Should match buttons */
+    justify-content: space-between;
+    margin: 1em auto;
+    width: 220px;
+
+    box-shadow: #999 0px 0px 5px 0px;
+
+    span {
+        flex: 1;
+        line-height: 1.5em;
+        text-align: center;
+    }
+
+    button {
+        width: 40px;
+    }
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    table-layout: fixed-size;
+    border-collapse: collapse;
+    min-inline-size: 640px;
+}
+
+tr > td:first-child, td:nth-child(2) {
+    text-align: center;
+}
+
+th {
+    width: 15%;
+}
+
+th:first-child {
+    width: 5%;
+}
+
+th:nth-child(2) {
+    width: 10%;
+}
+
+th:last-child {
+    width: auto;
+    word-break: break-word;
+}
+
+td {
+    padding: 0 0.5rem;
+}
+
+td, th {
+    border: 1px dotted gray;
+    line-height: 1.5em;
+
+    /* height works like min-height on table cells */
+    height: 3em;
+}
+
+.selected {
+    background-color: #fff8;
+}
