@@ -7,14 +7,21 @@ body {
     background: #ddd;
     max-width: 860px;
     margin: 0 auto;
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+
+    box-shadow: #d6d6d6 0px 0px 100px 100px;
 }
 
 header, section {
-    margin: 0 0.5rem;
+    margin: 0 0.5em;
 }
 
 /* Shared styles */
+h1 {
+    margin-block-start: 0;
+    padding-block-start: 0.67rem;
+}
+
 input[type="text"] {
     display: block;
     line-height: 1.5em;
@@ -196,7 +203,7 @@ table {
     min-inline-size: 640px;
 }
 
-tr > td:first-child, td:nth-child(2) {
+td:first-child, td:nth-child(2) {
     text-align: center;
 }
 
@@ -214,11 +221,11 @@ th:nth-child(2) {
 
 th:last-child {
     width: auto;
-    word-break: break-word;
 }
 
 td {
     padding: 0 0.5rem;
+    word-break: break-word;
 }
 
 td, th {
