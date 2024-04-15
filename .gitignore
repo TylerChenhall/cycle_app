@@ -1,0 +1,8 @@
+# Database data
+sqlite/
+
+# Python
+server/__pycache__/
+
+# Markdown viewer backup files
+*.backup
