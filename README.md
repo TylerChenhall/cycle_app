@@ -16,8 +16,36 @@ Key features include
 * Frequent, intentional choice of action
 * Data collection for future reflection
 
+This shifts focus toward developing internal connection and intrinsic motivation, whereas a productivity focus often collides with negative and judgmental emotional states.
+
 ## Status
 
 This project is casually in-development [I add features when they seem particularly useful]
 
 Currently, basic cycle management, data recording, and browsing are implemented. Follow-up analysis is still very limited, and the application only supports a single user.
+
+The application has a wider view intended for desktop use, and a narrow view for mobile.
+
+## Technical Details
+
+The app requires Python3 with Flask. The frontend is HTML+CSS+JS. The backend is a Flask server with sqlite database.
+
+### Database setup
+```
+cd server
+python3 database.py
+```
+
+Alternatively, use the Flask command
+```
+cd server
+flask --app server init-db
+```
+
+### Running the app
+```
+cd server
+flask --app server run
+```
+
+By default, Flask serves at [http://localhost:5000](http://localhost:5000)
