@@ -167,7 +167,7 @@ beginButton.addEventListener('click', () => {
     let validInputs = true;
     const activities = [];
     for (const activityInput of activityInputs) {
-        if (activityInput.value.length === 0) {
+        if (activityInput.value.trim().length === 0) {
             activityInput.classList.add('error');
             validInputs = false;
         } else {
@@ -181,7 +181,7 @@ beginButton.addEventListener('click', () => {
     // If we have enough content, collect & clear it.
     // Then, populate the next section.
     for (const activityInput of activityInputs) {
-        activities.push(activityInput.value);
+        activities.push(activityInput.value.trim());
         activityInput.value = '';
     }
     
@@ -331,6 +331,10 @@ function setActivitySubmitEnabled(enabled) {
 function setSetupEnabled(enabled) {
     for (const activityInput of activityInputs) {
         activityInput.disabled = !enabled;
+        // Also remove the error class when disabling.
+        if (!enabled) {
+            activityInput.classList.remove('error');
+        }
     }
     beginButton.disabled = !enabled;
 }
