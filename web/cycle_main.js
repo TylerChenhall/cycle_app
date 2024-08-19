@@ -13,6 +13,8 @@ const dateForward = document.querySelector('.date-forward');
 const tableDate = document.querySelector('.table-controls span');
 const tableBody = document.querySelector('tbody');
 
+const tableTotal = document.querySelector('.table-total');
+
 // -------------- Activity Tracking -------------- //
 let currentActivity;
 
@@ -363,7 +365,8 @@ async function tableState() {
         tableBody.removeChild(tableBody.lastChild);
     }
     // Repopulate the table with the new data.
-    for (const cycle of cycleHistory) {
+    tableTotal.textContent = cycleHistory.length;
+    for (const cycle of cycleHistory.reverse()) {
         tableBody.appendChild(cycle.activityHTML());
     }
 }

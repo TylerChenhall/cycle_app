@@ -6,8 +6,9 @@ html {
 body {
     background: #ddd;
     max-inline-size: 860px;
+    min-block-size: calc(100vh - 1rem);
     margin: 0 auto;
-    padding-bottom: 1rem;
+    padding-block-end: 1rem;
 
     box-shadow: #d6d6d6 0px 0px 100px 100px;
 }
@@ -173,13 +174,20 @@ label {
 }
 
 /* Session Summary Section */
+.table-controls-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 220px 1fr; /* 220px is the controls size */
+    gap: 1em;
+}
+
 .table-controls {
+    grid-column-start: 2; /* Place controls in the center column */
+    
     display: flex;
     align-items: center;
     border-radius: 2px; /* Should match buttons */
     justify-content: space-between;
-    margin: 1em auto;
-    inline-size: 220px;
+    margin: auto 0;
 
     box-shadow: #999 0px 0px 5px 0px;
 
@@ -194,6 +202,16 @@ label {
     }
 }
 
+.table-total {
+    grid-column-start: 3;
+    
+    padding: 5px;
+    border-radius: 6px;
+    background-color: #0c0;
+    color: white;
+    margin: 1em auto 1em 0.5em;
+}
+
 .table-wrapper {
     overflow-x: auto;
 }
@@ -201,7 +219,7 @@ label {
 table {
     table-layout: fixed-size;
     border-collapse: collapse;
-    min-inline-size: 640px;
+    min-inline-size: max(640px, 100%);
 }
 
 td:first-child, td:nth-child(2) {
@@ -212,12 +230,18 @@ th {
     inline-size: 15%;
 }
 
+/* We may not want the numbered first column. Rather than entirely
+   delete it, hide it for now */
+tr > :first-child {
+    display: none;
+}
+
 th:first-child {
     inline-size: 5%;
 }
 
 th:nth-child(2) {
-    inline-size: 10%;
+    inline-size: 12%; /* Originally 10% */
 }
 
 th:last-child {
